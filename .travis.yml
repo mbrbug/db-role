@@ -4,8 +4,9 @@ python:
 install:
 - pip install ansible==2.7.0 molecule apache-libcloud
 script:
-  # Basic role syntax check
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+- molecule create
+- molecule converge
+- molecule verify
 after_script:
 - molecule --debug destroy
 env:
