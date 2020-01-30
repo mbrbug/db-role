@@ -4,11 +4,8 @@ python:
 install:
 - pip install ansible==2.7.0 molecule apache-libcloud
 script:
-- molecule create
-- molecule converge
 - molecule verify
 after_script:
-- molecule --debug destroy
 env:
   matrix:
   - GCE_CREDENTIALS_FILE="$(pwd)/credentials.json\
