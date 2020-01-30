@@ -17,5 +17,7 @@ def test_config_file(host):
     assert config_file.contains('bindIp: 0.0.0.0')
     assert config_file.is_file
 
-def test_db_port(host):
-    host.socket("tcp://0.0.0.0:27017").is_listening
+# check listening ip mongo
+def test_http(host):
+    tcp = host.socket('tcp://0.0.0.0:27017')
+    assert tcp.is_listening
